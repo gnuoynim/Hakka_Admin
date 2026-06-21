@@ -19,6 +19,8 @@ api.interceptors.response.use(
   (err) => {
     if (err?.response?.status === 401) {
       clearToken();
+      // 사용자에게 알림 표시
+      alert("세션이 만료되었습니다. 다시 로그인해주세요.");
       if (window.location.pathname !== "/login") window.location.href = "/login";
     }
     return Promise.reject(err);

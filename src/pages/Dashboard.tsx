@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import {
   Card, Title, Text, Metric, Grid, BarChart, BarList, AreaChart, DonutChart,
   Table, TableHead, TableHeaderCell, TableBody, TableRow, TableCell,
@@ -20,6 +21,7 @@ const CATEGORIES = ["place", "shopping", "sns", "video"];
 
 export default function Dashboard() {
   const { email, signOut } = useAuth();
+  const location = useLocation();
   const [period, setPeriod] = useState<Period>("30d");
   const [stats, setStats] = useState<any>(null);
   const [links, setLinks] = useState<any[]>([]);
@@ -93,6 +95,20 @@ export default function Dashboard() {
       <header className="bg-white border-b sticky top-0 z-10">
         <div className="max-w-7xl mx-auto px-4 py-3 flex items-center gap-4">
           <Title>Hakka Admin</Title>
+          <nav className="flex gap-4 ml-6">
+            <Link
+              to="/"
+              className={`text-sm font-medium ${location.pathname === '/' ? 'text-blue-600' : 'text-gray-600 hover:text-gray-900'}`}
+            >
+              대시보드
+            </Link>
+            <Link
+              to="/reports"
+              className={`text-sm font-medium ${location.pathname === '/reports' ? 'text-blue-600' : 'text-gray-600 hover:text-gray-900'}`}
+            >
+              신고 관리
+            </Link>
+          </nav>
           <div className="flex-1" />
           <Select value={period} onValueChange={(v) => setPeriod(v as Period)} className="max-w-[140px]">
             {PERIODS.map((p) => <SelectItem key={p.value} value={p.value}>{p.label}</SelectItem>)}
