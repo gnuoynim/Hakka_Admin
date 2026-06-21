@@ -373,7 +373,7 @@ function InviteJoinCard({ data }: { data: any }) {
 
   return (
     <Card>
-      <Title>🤝 가입 경로</Title>
+      <Title>🤝 모꼬지 가입 경로</Title>
       <Text className="mt-1">유저가 어느 경로로 모꼬지에 들어왔는지</Text>
       <div className="grid md:grid-cols-2 gap-6 mt-4">
         {/* 1. 가입 경로 분포 */}
@@ -413,7 +413,7 @@ function InviteJoinCard({ data }: { data: any }) {
 
         {/* 2. 가입 경로별 추이 */}
         <div>
-          <Text className="font-semibold mb-2">가입 경로별 추이</Text>
+          <Text className="font-semibold mb-2">모꼬지 가입 경로별 추이</Text>
           {trendData.length === 0 ? (
             <Text className="text-gray-400 mt-4">데이터 없음</Text>
           ) : (
